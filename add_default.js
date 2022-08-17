@@ -75,17 +75,75 @@ function add_def_rout(){
 }
 
 function add_day(){
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('0','076BEIAB','sunday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('1','076BEIAB','monday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('2','076BEIAB','tuesday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('3','076BEIAB','wednesday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('4','076BEIAB','thursday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('5','076BEIAB','friday')");
-    pool.query("INSERT INTO day (day_id, def_rout_id,name) VALUES ('6','076BEIAB','saturday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('0','sunday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('1','monday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('2','tuesday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('3','wednesday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('4','thursday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('5','friday')");
+    pool.query("INSERT INTO day (day_id, name) VALUES ('6','saturday')");
 }
 function add_time_slot(){
     let i = 0;
-    pool.query("INSERT INTO time_slot (time_id, day_id, start_time, end_time, type) VALUES ("+toString(i++)+",'0','08:00:00','09:00:00')");
+    //GROUP A
+    //SUNDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i++ +"','076BEIA','0','RK','CE615','10:15:00','11:55:00','LectureTutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','0','PR','EX605','15:15:00','16:55:00','Lecture')");
+
+    //MONDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','1','AV','CT612','12:45:00','15:15:00','Lecture/Tutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','1','PR','EX605','15:15:00','16:55:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','1','AV','CT612','15:15:00','16:55:00','Practical')");
+
+    //TUESDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','2','SS','CT603','10:15:00','11:55:00','Lecture/Tutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','2','BS','CT610','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','2','SS','CT603','14:25:00','16:55:00','Practical')");
+
+    //WEDNESDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','3','SS','CT603','10:15:00','11:55:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','3','BS','CT610','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','3','BRD','CT613','14:25:00','16:05:00','Lecture/Tutorial')");
+
+    //THURSDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','4','BS','CT610','10:15:00','12:45:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','4','RK','CE615','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','4','PR','EX605','15:15:00','16:55:00','Lecture/Tutorial')");
+
+    //FRIDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','5','BRD','CT613','10:15:00','12:45:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','5','BRD','CT613','13:35:00','15:15:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIA','5','AV','CT612','15:15:00','16:55:00','Lecture')");
+
+    //GROUP B
+    //SUNDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','0','RK','CE615','10:15:00','11:55:00','Lecture/Tutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','0','PR','EX605','15:15:00','16:55:00','Lecture')");
+
+    //MONDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','1','AV','CT612','12:45:00','15:15:00','Lecture/Tutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','1','PR','EX605','15:15:00','16:55:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','1','AV','CT612','15:15:00','16:55:00','Practical')");
+
+    //TUESDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','2','SS','CT603','10:15:00','11:55:00','Lecture/Tutorial')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','2','BS','CT610','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','2','SS','CT603','14:25:00','16:55:00','Practical')");
+
+    //WEDNESDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','3','SS','CT603','10:15:00','11:55:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','3','BS','CT610','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','3','BRD','CT613','14:25:00','16:05:00','Lecture/Tutorial')");
+
+    //THURSDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','4','BRD','CT613','10:15:00','12:45:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','4','RK','CE615','12:45:00','14:25:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','4','PR','EX605','15:15:00','16:55:00','Lecture/Tutorial')");
+
+    //FRIDAY
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','5','BS','CT610','10:15:00','12:45:00','Practical')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','5','BRD','CT613','13:35:00','15:15:00','Lecture')");
+    pool.query("INSERT INTO time_slot (time_id, def_rout_id, day_id, teacher_id, subject_id, start_time, end_time, type) VALUES ('"+ i+++ "','076BEIB','5','AV','CT612','15:15:00','16:55:00','Lecture')");
 }
 add_batch_id();
 add_teacher();
@@ -94,3 +152,4 @@ add_def_rout();
 setTimeout(add_student,700);
 setTimeout(add_lesson,700);
 setTimeout(add_day, 700);
+setTimeout(add_time_slot, 1000);

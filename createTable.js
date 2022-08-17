@@ -40,7 +40,7 @@ function createTable(){
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE day (day_id INT PRIMARY KEY,name VARCHAR(10), def_rout_id VARCHAR(255))",(err, res) => {
+    pool.query("CREATE TABLE day (day_id INT PRIMARY KEY,name VARCHAR(10))",(err, res) => {
         if(err) {
             console.log(err);
         }
@@ -79,12 +79,6 @@ function alter(){
             console.log(err);
         }
         // pool.end(); 
-    });
-    pool.query("ALTER TABLE day ADD FOREIGN KEY(def_rout_id) REFERENCES default_rout(def_rout_id)",(err, res) => {
-        if(err) {
-            console.log(err);
-        }
-        // pool.end();
     });
     pool.query("ALTER TABLE time_slot ADD FOREIGN KEY (day_id) REFERENCES day(day_id)",(err, res) => {
         if(err) {
