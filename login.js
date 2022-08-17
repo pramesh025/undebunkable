@@ -26,13 +26,13 @@ function login_page(){
             else{
                 console.log("Login successful!");
                 console.log("Welcome, " + res.rows[0].name + "!");
-                main_menu(std_id);
+                stud_page(std_id);
             }
         }
     }
     );
 }
-function main_menu(std_id){
+function stud_page(std_id){
     console.clear();
     //print name, Rollno., email, section
     pool.query("SELECT * FROM student WHERE std_id = $1",[std_id],(err, res) => {
