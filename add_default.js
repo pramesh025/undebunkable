@@ -70,7 +70,8 @@ function add_lesson(){
 }
 
 function add_def_rout(){
-    pool.query("INSERT INTO default_rout (def_rout_id) VALUES ('076BEIAB')");
+    pool.query("INSERT INTO default_rout (def_rout_id) VALUES ('076BEIA')");
+    pool.query("INSERT INTO default_rout (def_rout_id) VALUES ('076BEIB')");
 }
 
 function add_day(){

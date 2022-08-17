@@ -46,7 +46,7 @@ function createTable(){
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE time_slot (time_id INT PRIMARY KEY, start_time TIME, end_time TIME, type VARCHAR(50), day_id INT, subject_id VARCHAR(10), teacher_id VARCHAR(5))",(err, res) => {
+    pool.query("CREATE TABLE time_slot (time_id INT PRIMARY KEY, start_time TIME, end_time TIME, type VARCHAR(50), day_id INT, subject_id VARCHAR(10), teacher_id VARCHAR(5), def_rout_id VARCHAR(255))",(err, res) => {
         if(err) {
             console.log(err);
         }
@@ -117,6 +117,12 @@ function alter(){
         // pool.end();
     });
     pool.query("ALTER TABLE time_slot ADD FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id)",(err, res) => {
+        if(err) {
+            console.log(err);
+        }
+        // pool.end();
+    });
+    pool.query("ALTER TABLE time_slot ADD FOREIGN KEY(def_rout_id) REFERENCES default_rout(def_rout_id)",(err, res) => {
         if(err) {
             console.log(err);
         }
