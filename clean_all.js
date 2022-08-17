@@ -7,7 +7,7 @@ const pool = new Pool({
     password: 'asdf',
     port: 5432,
 })
-pool.query("DROP TABLE IF EXISTS student,batch_dep,teacher,subject,lesson,default_rout,day", (err, res) => {
+pool.query("DROP TABLE IF EXISTS student,batch_dep,teacher,subject,lesson,day,default_rout,time_slot,changes", (err, res) => {
     if(err) {
         console.log(err);
     }
