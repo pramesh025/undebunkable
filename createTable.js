@@ -10,25 +10,25 @@ const pool = new Pool({
 
 
 function createTable(){
-    pool.query("CREATE TABLE student (std_id INT PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, is_CR BOOLEAN NOT NULL, password VARCHAR(255) NOT NULL, batch_id VARCHAR(255) NOT NULL)",(err, res) => {
+    pool.query("CREATE TABLE student (std_id VARCHAR(255) PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, is_CR BOOLEAN NOT NULL, password VARCHAR(255) NOT NULL, batch_id VARCHAR(255) NOT NULL,section VARCHAR(1))",(err, res) => {
         if(err) {
             console.log(err);
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE batch_dep (batch_id VARCHAR(255) PRIMARY KEY, section VARCHAR(1),def_rout_id VARCHAR(255))",(err, res) => {
+    pool.query("CREATE TABLE batch_dep (batch_id VARCHAR(255) PRIMARY KEY,def_rout_id VARCHAR(255),section VARCHAR(1))",(err, res) => {
         if(err) {
             console.log(err);
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE teacher (teacher_id INT PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL)",(err, res) => {
+    pool.query("CREATE TABLE teacher (teacher_id VARCHAR(5) PRIMARY KEY, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL)",(err, res) => {
         if(err) {
             console.log(err);
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE subject (subject_id INT PRIMARY KEY, name VARCHAR(255) NOT NULL)",(err, res) => {
+    pool.query("CREATE TABLE subject (subject_id VARCHAR(10) PRIMARY KEY, name VARCHAR(255) NOT NULL)",(err, res) => {
         if(err) {
             console.log(err);
         }
@@ -40,13 +40,13 @@ function createTable(){
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE day (day_id INT PRIMARY KEY, def_rout_id VARCHAR(255))",(err, res) => {
+    pool.query("CREATE TABLE day (day_id INT PRIMARY KEY,name VARCHAR(10), def_rout_id VARCHAR(255))",(err, res) => {
         if(err) {
             console.log(err);
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE time_slot (time_id INT PRIMARY KEY, start_time INT, end_time INT, type VARCHAR(50), day_id INT)",(err, res) => {
+    pool.query("CREATE TABLE time_slot (time_id INT PRIMARY KEY, start_time TIME, end_time TIME, type VARCHAR(50), day_id INT)",(err, res) => {
         if(err) {
             console.log(err);
         }
@@ -74,7 +74,7 @@ function alter(){
         }
         // pool.end();
     });
-    pool.query("CREATE TABLE lesson (subject_id INT NOT NULL, teacher_id INT NOT NULL, FOREIGN KEY (subject_id) REFERENCES subject(subject_id), FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id))",(err, res) => {
+    pool.query("CREATE TABLE lesson (subject_id VARCHAR(5) NOT NULL, teacher_id VARCHAR(5) NOT NULL, FOREIGN KEY (subject_id) REFERENCES subject(subject_id), FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id))",(err, res) => {
         if(err) {
             console.log(err);
         }
